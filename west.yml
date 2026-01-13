@@ -1,0 +1,22 @@
+# Example T2 west.yml, using manifest imports.
+# From https://docs.zephyrproject.org/latest/develop/west/workspaces.html#t2-star-topology-application-is-the-manifest-repository
+manifest:
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: v4.3.0
+      import:
+        name-allowlist:
+          - cmsis
+          - cmsis_6
+          - hal_xtensa
+          - hal_espressif
+          - hal
+          - mbedtls
+          - hal_stm32
+
+  self:
+    path: application
